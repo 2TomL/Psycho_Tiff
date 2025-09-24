@@ -1,4 +1,4 @@
-// Smooth scroll met offset zodat secties niet te hoog openen
+// Smooth scroll met offset
 function smoothScrollToSection(link, closeMenu = false) {
   link.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
@@ -24,7 +24,7 @@ var logoLink = document.querySelector('.logo-link');
 if (logoLink) {
   smoothScrollToSection(logoLink, false);
 }
-// JavaScript voor de werking van de zijbalk en menu
+// zijbalk en menu
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.querySelector('.menu-toggle');
   const menuWrapper = document.querySelector('.menu-wrapper');
