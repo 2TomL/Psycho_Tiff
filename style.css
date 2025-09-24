@@ -455,10 +455,10 @@ section#section7 .section-title {
 :root {
     --white: #fafaf9;
     --black: #222;
-    --menu-color: #f4f5f3; /* zacht lichtgrijs */
-    --fixed-menu-color: #e6e7e5; /* licht taupe/grijs */
-    --accent: #a3b9a3; /* heel subtiel grijsgroen accent */
-    --link-hover: #6d7c6d; /* zacht grijsgroen voor hover */
+    --menu-color: #f4f5f3;
+    --fixed-menu-color: #e6e7e5;
+    --accent: #50A3B9;
+    --link-hover: #6d7c6d;
     --section-bg: #f7f7f6; /* off-white voor secties */
 }
 .fixed-menu {
