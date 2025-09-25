@@ -35,11 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.querySelector('.menu-toggle');
   const menuWrapper = document.querySelector('.menu-wrapper');
   const menuLinks = document.querySelectorAll('.menu-links a');
+  const menuLabel = document.querySelector('.menu-label');
 
-  menuToggle.addEventListener('click', () => {
-      const isOpen = menuWrapper.classList.toggle('open');
-      menuToggle.classList.toggle('open', isOpen);
-  });
+  function toggleMenu() {
+    const isOpen = menuWrapper.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+  }
+  menuToggle.addEventListener('click', toggleMenu);
+  if (menuLabel) {
+    menuLabel.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+  }
 
   menuLinks.forEach(link => {
       link.addEventListener('click', () => {

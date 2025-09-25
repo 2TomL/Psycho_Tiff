@@ -580,7 +580,7 @@ section#section3 {
     line-height: 1;
     margin: 0;
     z-index: 1;
-    pointer-events: none;
+    pointer-events: auto;
 }
 @media (max-width: 900px) {
     .menu-label {
