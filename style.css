@@ -72,6 +72,9 @@ section#section7 {
     overflow: visible;
 }
 @media (max-width: 900px) {
+    #section3 .section-title {
+        margin-top: 4.5em !important;
+    }
     /* Alleen de nieuwste, correcte mobiele FAQ-styling behouden */
     .faq {
         max-width: 99vw;
@@ -81,11 +84,11 @@ section#section7 {
         max-height: none;
         overflow-y: visible;
         text-align: left;
-        margin-top: 4em;
+        margin-top: 2.5em;
     }
-    section#section3 .section-title {
-        margin-top: 3em !important;
-    }
+    section#section7 .section-title {
+        margin-top: 1em !important;
+        margin-bottom: 0em !important;
     }
     .faq li strong {
         font-size: 1em;
@@ -107,6 +110,7 @@ section#section7 {
     section#section2 .about-card {
         margin-top: 0.5em !important;
     }
+}
 /* Forceer links uitlijnen van sectie en cards-wrapper op desktop, centraal op mobiel */
 /* Zorg dat de cards niet afgesneden worden */
 .cards-outer-wrapper {
