@@ -1,3 +1,120 @@
+/* Contact sectietitel lager op desktop */
+#section8 .section-title {
+    margin-top: 4.5em !important;
+}
+/* --- Contact cards layout --- */
+.contact-cards-outer {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: stretch;
+    margin: 18px auto 64px auto;
+    max-width: 1100px;
+}
+.contact-card {
+    flex: 1 1 340px;
+    min-width: 300px;
+    max-width: 900px;
+    min-height: 180px;
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    backdrop-filter: blur(12px) saturate(1.2);
+    border: 1.5px solid rgba(255,255,255,0.28);
+    border-radius: 0 !important;
+    font-family: 'Fauna One', Arial, sans-serif;
+    color: #1a2330;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s, background 0.3s;
+    overflow: visible;
+    position: relative;
+}
+.contact-map-card {
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.contact-map-embed {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+.contact-map-embed .map-icon-label {
+    display: block;
+    position: absolute;
+    left: calc(50% + 4px);
+    top: 27%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    max-width: 160px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    z-index: 2;
+    opacity: 1;
+    pointer-events: none;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(.4,2,.3,1), opacity 0.18s cubic-bezier(.4,2,.3,1);
+}
+/* Schuif het map-icoon naar links bij hover, maar laat het zichtbaar */
+.contact-map-card:hover .map-icon-label,
+.contact-map-card.hover .map-icon-label {
+    transform: translate(-185%, -50%);
+    opacity: 1;
+}
+.contact-map-card:hover,
+.contact-map-card.hover {
+    background: linear-gradient(135deg, rgba(194,223,255,0.55) 0%, rgba(255,255,255,0.32) 100%);
+    border-color: #aee2ff;
+    box-shadow: 0 8px 32px 0 rgba(80, 180, 255, 0.22);
+}
+.contact-card h3 {
+    font-family: 'BreakingRoad', sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.7em;
+    color: #2a2a2a;
+    text-align: center;
+    width: 100%;
+}
+.contact-card a {
+    color: #1a2330;
+    text-decoration: underline;
+    word-break: break-all;
+}
+.contact-map-embed iframe {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    border-radius: 12px;
+    margin-top: 0;
+    filter: blur(4px) grayscale(0.2);
+    transition: filter 0.4s cubic-bezier(.4,2,.3,1);
+}
+.contact-map-card:hover .contact-map-embed iframe,
+.contact-map-card.hover .contact-map-embed iframe {
+    filter: none;
+}
+@media (max-width: 900px) {
+    .contact-cards-outer {
+        flex-direction: column;
+        gap: 24px;
+        max-width: 98vw;
+        margin: 24px auto 32px auto;
+    }
+    .contact-card {
+        max-width: 98vw;
+        min-width: 0;
+        width: 100%;
+        padding: 18px 8px 22px 8px;
+        margin: 0 auto;
+    }
+}
 /* FAQ eerste letter in BreakingRoad font via HTML span */
 .faq-first-letter {
     font-family: 'BreakingRoad', sans-serif !important;
@@ -410,8 +527,8 @@ section#section3 {
     font-style: normal;
 }
 .section-title {
-    font-family: 'BreakingRoad', cursive, sans-serif;
-    font-size: 2.2rem;
+    font-family: 'BreakingRoad', sans-serif;
+    font-size: 2.2rem !important;
     color: #2a2a2a;
     margin: 0 auto 0.7em auto;
     text-align: center;
