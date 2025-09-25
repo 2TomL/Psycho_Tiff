@@ -95,6 +95,18 @@ const translations = {
   }
 };
 
+// Voeg card label vertalingen en tooltips toe
+const cardIconLabels = {
+  fr: ["Qui", "Quoi", "Comment"],
+  nl: ["Wie", "Wat", "Hoe"],
+  en: ["Who", "What", "How"]
+};
+const cardIconTooltips = {
+  fr: ["Pour qui?", "Pourquoi consulter?", "Comment ça se passe?"],
+  nl: ["Voor wie?", "Waarom consulteren?", "Hoe verloopt het?"],
+  en: ["For whom?", "Why consult?", "How does it work?"]
+};
+
 function setLanguage(lang) {
   // Menu links
   document.querySelector('.menu-links a[href="#section1"]').textContent = translations[lang].accueil;
@@ -103,8 +115,6 @@ function setLanguage(lang) {
   document.querySelector('.menu-links a[href="#section2"]').title = translations[lang].tooltips.apropos;
   document.querySelector('.menu-links a[href="#section3"]').textContent = translations[lang].therapie;
   document.querySelector('.menu-links a[href="#section3"]').title = translations[lang].tooltips.therapie;
-  document.querySelector('.menu-links a[href="#section4"]').textContent = translations[lang].infos;
-  document.querySelector('.menu-links a[href="#section4"]').title = translations[lang].tooltips.infos;
   document.querySelector('.menu-links a[href="#section5"]').textContent = translations[lang].rdv;
   document.querySelector('.menu-links a[href="#section5"]').title = translations[lang].tooltips.rdv;
   document.querySelector('.menu-links a[href="#section6"]').textContent = translations[lang].blog;
@@ -117,7 +127,6 @@ function setLanguage(lang) {
   // Section titles
   document.querySelector('#section2 .section-title').textContent = translations[lang].apropos;
   document.querySelector('#section3 .section-title').textContent = translations[lang].therapie;
-  document.querySelector('#section4 .section-title').textContent = translations[lang].infos;
   document.querySelector('#section5 .section-title').textContent = translations[lang].rdv;
   document.querySelector('#section6 .section-title').textContent = translations[lang].blog;
   document.querySelector('#section7 .section-title').textContent = translations[lang].faq;
@@ -133,6 +142,22 @@ function setLanguage(lang) {
     socialIcons[0].title = translations[lang].tooltips.facebook;
     socialIcons[1].title = translations[lang].tooltips.instagram;
     socialIcons[2].title = translations[lang].tooltips.mail;
+  }
+
+  // Card icon labels + tooltips
+  const iconLabels = document.querySelectorAll('.card-icon-label');
+  if (iconLabels.length === 3) {
+    iconLabels[0].textContent = cardIconLabels[lang][0];
+    iconLabels[1].textContent = cardIconLabels[lang][1];
+    iconLabels[2].textContent = cardIconLabels[lang][2];
+    iconLabels[0].title = cardIconTooltips[lang][0];
+    iconLabels[1].title = cardIconTooltips[lang][1];
+    iconLabels[2].title = cardIconTooltips[lang][2];
+  }
+
+  // FAQ meevertaalt
+  if (typeof renderFAQ === 'function') {
+    renderFAQ(lang);
   }
 }
 
