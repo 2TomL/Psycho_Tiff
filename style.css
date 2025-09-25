@@ -1,3 +1,34 @@
+@media (max-width: 900px) {
+    .side-nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 60px;
+        z-index: 200;
+    }
+    .fixed-menu {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 60px;
+        z-index: 201;
+    }
+}
+@media (max-width: 900px) {
+    .menu-toggle {
+        margin-left: 18px !important;
+    }
+    .socials .social-icon:last-child {
+        margin-right: 18px !important;
+    }
+}
+@media (max-width: 900px) {
+    .logo {
+        display: none !important;
+    }
+}
 @font-face {
     font-family: 'BreakingRoad';
     src: url('assets/font/breaking_road/Breaking Road.ttf') format('truetype');
