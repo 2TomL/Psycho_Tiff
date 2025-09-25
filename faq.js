@@ -39,7 +39,10 @@ function renderFAQ(lang) {
   const liArr = [];
   faqData[lang].forEach((item, idx) => {
     const li = document.createElement('li');
-    li.innerHTML = `<strong>${item.q}</strong><div class="faq-answer">${item.a}</div>`;
+    // Eerste letter apart in span
+    const firstLetter = item.q.charAt(0);
+    const rest = item.q.slice(1);
+    li.innerHTML = `<strong><span class='faq-first-letter'>${firstLetter}</span>${rest}</strong><div class="faq-answer">${item.a}</div>`;
     li.classList.remove('open'); // altijd dicht bij aanmaak
     li.addEventListener('click', function(e) {
       // Sluit altijd alle andere antwoorden
