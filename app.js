@@ -1,3 +1,9 @@
+// Card-element hover fallback voor touch
+document.querySelectorAll('.card-element').forEach(function (el) {
+  el.addEventListener('mouseleave', function () {
+    el.classList.remove('hover');
+  });
+});
 // Smooth scroll met offset
 function smoothScrollToSection(link, closeMenu = false) {
   link.addEventListener('click', function(e) {

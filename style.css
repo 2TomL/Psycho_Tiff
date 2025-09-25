@@ -1,3 +1,181 @@
+/* Forceer links uitlijnen van sectie en cards-wrapper op desktop, centraal op mobiel */
+/* Zorg dat de cards niet afgesneden worden */
+.cards-outer-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 24px 0;
+    box-sizing: border-box;
+    background: none;
+}
+
+section#section3 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    margin: 0 auto;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-stack-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.card-element {
+    flex: 1 1 340px;
+    min-width: 300px;
+    max-width: 360px;
+    min-height: 320px;
+    font-size: 19px;
+    padding: 28px 22px 28px 22px;
+    border-radius: 0 !important;
+}
+@media (max-width: 900px) {
+    .card-stack-container {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    .card-element {
+        max-width: 78vw;
+        min-width: 78vw;
+        min-height: 200px;
+        font-size: 15px;
+        padding: 18px 8px 22px 8px;
+        border-radius: 0 !important;
+        word-break: break-word;
+        box-sizing: border-box;
+        margin: 0 auto 18px auto;
+    }
+    .card-element figcaption {
+        padding: 12px 0 12px 10px;
+    }
+    .card-element h2, .card-element p {
+        font-size: 1em;
+        word-break: break-word;
+        line-height: 1.3;
+    }
+    .card-element img {
+        max-width: 60px;
+    }
+}
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Fauna+One');
+
+/* --- Card-elementen voor Therapies & Services --- */
+.card-element {
+    font-family: 'Fauna One', Arial, sans-serif;
+    position: relative;
+    margin: 10px 20px;
+    width: 100%;
+    color: #1a2330;
+    text-align: left;
+    line-height: 1.4em;
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    border: 1.5px solid rgba(255,255,255,0.28);
+    animation: frostdrop 2.2s infinite alternate ease-in-out;
+@keyframes frostdrop {
+    from {
+        border-radius: 38% 62% 46% 54% / 46% 51% 49% 54%;
+    }
+    to {
+        border-radius: 50%;
+    }
+}
+/* Frost hover kleuren voor buitenste cards */
+.card-element:first-child:hover,
+.card-element:last-child:hover {
+    background: linear-gradient(135deg, rgba(194,223,255,0.55) 0%, rgba(255,255,255,0.32) 100%);
+    border-color: #aee2ff;
+    box-shadow: 0 8px 32px 0 rgba(80, 180, 255, 0.22);
+}
+.card-element:first-child,
+.card-element:last-child {
+    border-radius: 0 !important;
+    transition: border-radius 0.5s, background 0.3s, box-shadow 0.3s;
+}
+    overflow: visible;
+}
+.card-element * {
+    box-sizing: border-box;
+    transition: all 0.35s ease;
+}
+.card-element img {
+    position: absolute;
+    right: 36%;
+    top: 50%;
+    opacity: 1;
+    width: 48%;
+    max-width: 90px;
+    background: transparent;
+    border-radius: 0;
+    transform: translate(0%, -50%);
+}
+.card-element figcaption {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 20px 0 20px 20px;
+}
+.card-element h2,
+.card-element p {
+    margin: 0;
+    width: 100%;
+    transform: translateX(20px);
+    opacity: 0;
+}
+.card-element h2 {
+  font-family: 'BreakingRoad', cursive, sans-serif;
+  font-size: 2.2rem;
+  font-weight: normal;
+  color: #2a2a2a;
+  margin: 0 0 0.5em 0;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+.card-element p {
+    font-size: 0.85em;
+}
+.card-element a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.card-element:hover img,
+.card-element.hover img {
+    width: 55%;
+    right: -10%;
+}
+.card-element:hover figcaption h2,
+.card-element.hover figcaption h2,
+.card-element:hover figcaption p,
+.card-element.hover figcaption p {
+    transform: translateX(0px);
+    opacity: 1;
+}
 @media (max-width: 900px) {
     .side-nav {
         position: fixed !important;
@@ -39,10 +217,8 @@
     font-family: 'BreakingRoad', cursive, sans-serif;
     font-size: 2.2rem;
     color: #2a2a2a;
-    margin: 0;
-    margin-left: 0.7em;
-    margin-top: 0.7em;
-    margin-bottom: 0.7em;
+    margin: 0 auto 0.7em auto;
+    text-align: center;
     line-height: 1.1;
     position: relative;
     top: -3.5em;
@@ -54,6 +230,7 @@
     .section-title {
         font-size: 1.25rem;
         margin-left: 0.5em;
+        margin-right: 0;
         margin-top: 1.2em;
         margin-bottom: 0.7em;
         top: 0;
@@ -128,7 +305,6 @@
     border-radius: 6px;
     transition: background 0.2s;
     display: block;
-    background: none;
 }
 .menu-links a:hover {
     background: linear-gradient(90deg, #e0e7ef 0%, #cfd8dc 70%, rgba(207,216,220,0) 100%);
@@ -851,8 +1027,253 @@ html, body, *, *::before, *::after {
     box-sizing: border-box;
 }
 @media (min-width: 901px) {
-    .menu-toggle {
-        position: relative;
-        top: 170px;
-    }
+  .card-stack-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 32px;
+    flex-wrap: nowrap;
+  }
+  .card-element {
+    width: 340px;
+    min-width: 340px;
+    max-width: 340px;
+    flex: 0 0 340px;
+    margin: 0;
+  }
+}
+
+/* --- About sectie --- */
+.about-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 40px;
+  margin: 48px auto 64px auto;
+  padding: 48px 40px;
+  max-width: 1100px;
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+  border: 2px solid rgba(255,255,255,0.28);
+  border-radius: 0 !important;
+  animation: frostdrop 2.2s infinite alternate ease-in-out;
+  position: relative;
+  overflow: visible;
+  padding-left: 140px;
+}
+.about-card {
+  max-width: 1700px;
+  padding-left: 260px;
+}
+.about-content {
+  width: 100%;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+@media (max-width: 1400px) {
+  .about-card {
+    padding-left: 120px;
+  }
+}
+@media (max-width: 1200px) {
+  .about-card {
+    max-width: 98vw;
+    padding-left: 8vw;
+  }
+}
+@media (max-width: 900px) {
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 8px;
+  }
+  .about-img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: none !important;
+  }
+  .about-img {
+    max-width: 90vw;
+    height: auto;
+  }
+  .about-content {
+    position: static;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    font-size: 1em;
+    transform: none !important;
+    opacity: 1 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-content h3 {
+    text-align: center;
+    width: 100%;
+  }
+}
+.about-img-wrapper, .about-content {
+  transition: all 0.5s cubic-bezier(.4,2,.3,1);
+}
+.about-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: none;
+  padding: 0 0 0 40px;
+  transform: translateX(40px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(.4,2,.3,1);
+  z-index: 2;
+}
+.about-card:hover .about-content,
+.about-card:focus-within .about-content {
+  transform: translateX(0);
+  opacity: 1;
+}
+.about-img-wrapper {
+  position: relative;
+  z-index: 10;
+  transition: all 0.5s cubic-bezier(.4,2,.3,1);
+  transform: translateX(-38%);
+}
+.about-card:hover .about-img-wrapper,
+.about-card:focus-within .about-img-wrapper {
+  transform: translateX(55%);
+}
+@media (max-width: 900px) {
+  .about-content {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 900px) {
+  .about-card {
+    overflow: visible;
+  }
+  .about-img-wrapper {
+    transform: none !important;
+  }
+}
+.about-content {
+  flex: 1 1 0;
+  min-width: 0;
+  color: #1a2330;
+  font-size: 1.1em;
+  line-height: 1.5;
+  font-family: 'Fauna One', Arial, sans-serif;
+  padding: 0 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-content h3 {
+  font-family: 'BreakingRoad', cursive, sans-serif;
+  font-size: 2.1em;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5em;
+  color: #1a2330;
+}
+@media (max-width: 900px) {
+  .about_card {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 8px;
+  }
+  .about-img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: none !important;
+  }
+  .about-img {
+    max-width: 90vw;
+    height: auto;
+  }
+  .about-content {
+    position: static;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    font-size: 1em;
+    transform: none !important;
+    opacity: 1 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-content h3 {
+    text-align: center;
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 8px;
+  }
+  .about-img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: none !important;
+  }
+  .about-img {
+    max-width: 90vw;
+    height: auto;
+  }
+  .about-content {
+    position: static;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    font-size: 1em;
+    transform: none !important;
+    opacity: 1 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-content h3 {
+    text-align: center;
+    width: 100%;
+  }
+}
+/* About-card breder bij hover */
+.about-card {
+  transition: transform 0.4s cubic-bezier(.4,2,.3,1);
+}
+.about-card:hover,
+.about-card:focus-within {
+  transform: scaleX(1.06);
+}
+
+/* Titel lager in about-sectie */
+#section2 .section-title {
+  margin-top: 2.5em;
+  margin-bottom: 1.2em;
+  position: static;
+}
+#section2 {
+  position: relative;
+  overflow: visible !important;
 }
