@@ -81,11 +81,11 @@ section#section7 {
         max-height: none;
         overflow-y: visible;
         text-align: left;
-        margin-top: 2.5em;
+        margin-top: 4em;
     }
-    section#section7 .section-title {
-        margin-top: 1em !important;
-        margin-bottom: 0em !important;
+    section#section3 .section-title {
+        margin-top: 3em !important;
+    }
     }
     .faq li strong {
         font-size: 1em;
@@ -107,7 +107,6 @@ section#section7 {
     section#section2 .about-card {
         margin-top: 0.5em !important;
     }
-}
 /* Forceer links uitlijnen van sectie en cards-wrapper op desktop, centraal op mobiel */
 /* Zorg dat de cards niet afgesneden worden */
 .cards-outer-wrapper {
@@ -522,6 +521,7 @@ section#section3 {
     justify-content: flex-start;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+    margin-top: 200px;
 }
 .menu-icon,
 .menu-icon::before,
@@ -538,9 +538,9 @@ section#section3 {
 .menu-icon {
     position: relative;
     z-index: 2;
-    top: 50%;
+    top: 200px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
 }
 .menu-icon::before {
     top: -10px;
@@ -563,7 +563,7 @@ section#section3 {
 }
 .menu-label {
     position: absolute;
-    top: 54px;
+    top: 235px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.1em;
@@ -1448,12 +1448,19 @@ html, body, *, *::before, *::after {
   }
 }
 /* About-card breder bij hover */
-.about-card {
-  transition: transform 0.4s cubic-bezier(.4,2,.3,1);
+ .about-card {
+    transition: width 0.4s cubic-bezier(.4,2,.3,1), max-width 0.4s cubic-bezier(.4,2,.3,1);
 }
 .about-card:hover,
 .about-card:focus-within {
-  transform: scaleX(1.06);
+    max-width: 1600px;
+    width: 100%;
+}
+@media (max-width: 1200px) {
+    .about-card:hover,
+    .about-card:focus-within {
+        max-width: 98vw;
+    }
 }
 
 /* Titel lager in about-sectie */

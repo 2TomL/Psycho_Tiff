@@ -19,6 +19,16 @@ document.addEventListener('click', function(e) {
 // Language data (labels and tooltips)
 const translations = {
   fr: {
+    about: {
+      name: 'Tiffany Nauts',
+      p1: 'Psychologue clinicienne, spécialisée en thérapie pour adolescents et adultes. Passionnée par l’accompagnement humain, je vous accueille dans un cadre bienveillant et confidentiel.',
+      p2: 'Mon approche est personnalisée, intégrant différentes méthodes pour répondre au mieux à vos besoins.'
+    },
+    cards: [
+      { title: 'Qui', desc: 'Pour qui? Séances individuelles pour adolescents et adultes.' },
+      { title: 'Quoi', desc: 'Pourquoi consulter? Pour toute difficulté émotionnelle ou mentale.' },
+      { title: 'Comment', desc: 'Comment ça se passe? Une première rencontre suivie d’un suivi adapté.' }
+    ],
     accueil: 'Accueil',
     apropos: 'À propos de moi',
     therapie: 'Thérapies & Services',
@@ -44,6 +54,16 @@ const translations = {
     }
   },
   nl: {
+    about: {
+      name: 'Tiffany Nauts',
+      p1: 'Klinisch psycholoog, gespecialiseerd in therapie voor adolescenten en volwassenen. Met passie voor begeleiding ontvang ik je in een warme en vertrouwelijke setting.',
+      p2: 'Mijn aanpak is persoonlijk en combineert verschillende methodes om zo goed mogelijk aan jouw noden te beantwoorden.'
+    },
+    cards: [
+      { title: 'Wie', desc: 'Voor wie? Individuele sessies voor adolescenten en volwassenen.' },
+      { title: 'Wat', desc: 'Waarom consulteren? Voor elke emotionele of mentale moeilijkheid.' },
+      { title: 'Hoe', desc: 'Hoe verloopt het? Een eerste gesprek gevolgd door een aangepast traject.' }
+    ],
     accueil: 'Home',
     apropos: 'Over mij',
     therapie: 'Therapieën & Aanbod',
@@ -69,6 +89,16 @@ const translations = {
     }
   },
   en: {
+    about: {
+      name: 'Tiffany Nauts',
+      p1: 'Clinical psychologist, specialized in therapy for adolescents and adults. Passionate about human support, I welcome you in a caring and confidential environment.',
+      p2: 'My approach is personalized, integrating different methods to best meet your needs.'
+    },
+    cards: [
+      { title: 'Who', desc: 'For whom? Individual sessions for adolescents and adults.' },
+      { title: 'What', desc: 'Why consult? For any emotional or mental difficulty.' },
+      { title: 'How', desc: 'How does it work? A first meeting followed by a tailored follow-up.' }
+    ],
     accueil: 'Home',
     apropos: 'About me',
     therapie: 'Therapies & Services',
@@ -153,6 +183,32 @@ function setLanguage(lang) {
     iconLabels[0].title = cardIconTooltips[lang][0];
     iconLabels[1].title = cardIconTooltips[lang][1];
     iconLabels[2].title = cardIconTooltips[lang][2];
+  }
+
+  // Card titles and descriptions (aanbod)
+  const cardEls = document.querySelectorAll('.card-element');
+  if (cardEls.length === 3) {
+    for (let i = 0; i < 3; i++) {
+      const h2 = cardEls[i].querySelector('h2');
+      const p = cardEls[i].querySelector('p');
+      if (h2 && p) {
+        h2.textContent = translations[lang].cards[i].title;
+        p.textContent = translations[lang].cards[i].desc;
+      }
+    }
+  }
+
+  // About section vertaling
+  const about = translations[lang].about;
+  const aboutCard = document.querySelector('.about-card');
+  if (aboutCard && about) {
+    const h3 = aboutCard.querySelector('h3');
+    const pEls = aboutCard.querySelectorAll('p');
+    if (h3) h3.textContent = about.name;
+    if (pEls.length >= 2) {
+      pEls[0].textContent = about.p1;
+      pEls[1].textContent = about.p2;
+    }
   }
 
   // FAQ meevertaalt
