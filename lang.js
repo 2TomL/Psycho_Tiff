@@ -150,7 +150,17 @@ function setLanguage(lang) {
   document.querySelector('.menu-links a[href="#section3"]').title = translations[lang].tooltips.therapie;
   document.querySelector('.menu-links a[href="#section5"]').textContent = translations[lang].rdv;
   document.querySelector('.menu-links a[href="#section5"]').title = translations[lang].tooltips.rdv;
-  document.querySelector('.menu-links a[href="#section6"]').textContent = translations[lang].blog;
+  // Zet altijd de A van Articles in een span voor BreakingRoad font
+  const blogText = translations[lang].blog;
+  if (blogText.includes('Articles')) {
+    const idx = blogText.indexOf('Articles');
+    document.querySelector('.menu-links a[href="#section6"]').innerHTML = blogText.slice(0, idx) + '<span class="menu-articles-a">A</span>' + blogText.slice(idx + 1);
+  } else if (blogText.includes('Artikels')) {
+    const idx = blogText.indexOf('Artikels');
+    document.querySelector('.menu-links a[href="#section6"]').innerHTML = blogText.slice(0, idx) + '<span class="menu-articles-a">A</span>' + blogText.slice(idx + 1);
+  } else {
+    document.querySelector('.menu-links a[href="#section6"]').textContent = blogText;
+  }
   document.querySelector('.menu-links a[href="#section6"]').title = translations[lang].tooltips.blog;
   document.querySelector('.menu-links a[href="#section7"]').textContent = translations[lang].faq;
   document.querySelector('.menu-links a[href="#section7"]').title = translations[lang].tooltips.faq;
