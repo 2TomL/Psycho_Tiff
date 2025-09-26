@@ -265,10 +265,6 @@
     filter: none;
 }
 /* FAQ en cards volgen hieronder, ... */
-/* FAQ antwoorden blauw */
-.faq li .faq-answer {
-    color: #50A3B9;
-}
 /* =========================
    3. NAVIGATIE, MENU, TAAL, SOCIALS
    ========================= */
@@ -448,13 +444,13 @@
     flex: 1;
 }
 .menu-links li {
-    margin-bottom: 7px;
+    margin-bottom: 18px;
 }
 .menu-links a {
     color: #2a2a2a;
     text-decoration: none;
     font-size: 1.1rem;
-    padding: 3px 12px;
+    padding: 8px 12px;
     border-radius: 6px;
     transition: background 0.2s;
     display: block;
@@ -2071,16 +2067,14 @@ html, body, *, *::before, *::after {
   box-sizing: border-box;
 }
 @media (max-width: 900px) {
-    margin: 0.2em 0 !important;
-    padding: 0 !important;
+    /* ...existing code... */
     #section7 {
         scroll-margin-top: 0px !important;
     }
     #section8 {
         scroll-margin-top: 0px !important;
     }
-    padding-top: 0.1em !important;
-    padding-bottom: 0.1em !important;
+    /* ...existing code... */
   .about-card {
     max-width: 98vw;
     padding-left: 8vw;

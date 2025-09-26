@@ -46,7 +46,7 @@ const translations = {
       infos: "Infos pratiques",
       rdv: "Prendre rendez-vous",
       blog: "Blog & Articles",
-      faq: "FAQ",
+      faq: "Foire aux questions (FAQ)",
       contact: "Contact",
       langue: "Changer la langue",
       facebook: "Facebook",
@@ -82,7 +82,7 @@ const translations = {
       infos: "Praktische info",
       rdv: "Afspraak maken",
       blog: "Blog & Artikels",
-      faq: "FAQ",
+      faq: "Veelgestelde vragen (FAQ)",
       contact: "Contact",
       langue: "Taal wijzigen",
       facebook: "Facebook",
@@ -118,7 +118,7 @@ const translations = {
       infos: "Practical info",
       rdv: "Book appointment",
       blog: "Blog & Articles",
-      faq: "FAQ",
+      faq: "Frequently Asked Questions (FAQ)",
       contact: "Contact",
       langue: "Change language",
       facebook: "Facebook",
@@ -150,20 +150,19 @@ function setLanguage(lang) {
   document.querySelector('.menu-links a[href="#section3"]').title = translations[lang].tooltips.therapie;
   document.querySelector('.menu-links a[href="#section5"]').textContent = translations[lang].rdv;
   document.querySelector('.menu-links a[href="#section5"]').title = translations[lang].tooltips.rdv;
-  // Zet altijd de A van Articles in een span voor BreakingRoad font
+  // Zet altijd de eerste A van Articles/Artikels in een span voor BreakingRoad font, ongeacht wat ervoor staat
   const blogText = translations[lang].blog;
-  if (blogText.includes('Articles')) {
-    const idx = blogText.indexOf('Articles');
-    document.querySelector('.menu-links a[href="#section6"]').innerHTML = blogText.slice(0, idx) + '<span class="menu-articles-a">A</span>' + blogText.slice(idx + 1);
-  } else if (blogText.includes('Artikels')) {
-    const idx = blogText.indexOf('Artikels');
-    document.querySelector('.menu-links a[href="#section6"]').innerHTML = blogText.slice(0, idx) + '<span class="menu-articles-a">A</span>' + blogText.slice(idx + 1);
-  } else {
+  let replaced = false;
+  document.querySelector('.menu-links a[href="#section6"]').innerHTML = blogText.replace(/A([rticlesikls]*)/, function(match, p1) {
+    replaced = true;
+    return '<span class="menu-articles-a">A</span>' + p1;
+  });
+  if (!replaced) {
     document.querySelector('.menu-links a[href="#section6"]').textContent = blogText;
   }
   document.querySelector('.menu-links a[href="#section6"]').title = translations[lang].tooltips.blog;
   document.querySelector('.menu-links a[href="#section7"]').textContent = translations[lang].faq;
-  document.querySelector('.menu-links a[href="#section7"]').title = translations[lang].tooltips.faq;
+  document.querySelector('.menu-links a[href="#section7"]').setAttribute('title', translations[lang].tooltips.faq);
   document.querySelector('.menu-links a[href="#section8"]').textContent = translations[lang].contact;
   document.querySelector('.menu-links a[href="#section8"]').title = translations[lang].tooltips.contact;
 
