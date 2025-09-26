@@ -19,6 +19,7 @@ document.addEventListener('click', function(e) {
 // Language data (labels and tooltips)
 const translations = {
   fr: {
+    credit: 'Réalisé par <a href="https://2toml.github.io/TL_Final/" target="_blank" rel="noopener" id="site-credit-link"><span>Tom Lamers</span></a> - 2025',
     about: {
       name: 'Tiffany Nauts',
       p1: 'Psychologue clinicienne, spécialisée en thérapie pour adolescents et adultes. Passionnée par l’accompagnement humain, je vous accueille dans un cadre bienveillant et confidentiel.',
@@ -54,6 +55,7 @@ const translations = {
     }
   },
   nl: {
+    credit: 'Gemaakt door <a href="https://2toml.github.io/TL_Final/" target="_blank" rel="noopener" id="site-credit-link"><span>Tom Lamers</span></a> - 2025',
     about: {
       name: 'Tiffany Nauts',
       p1: 'Klinisch psycholoog, gespecialiseerd in therapie voor adolescenten en volwassenen. Met passie voor begeleiding ontvang ik je in een warme en vertrouwelijke setting.',
@@ -89,6 +91,7 @@ const translations = {
     }
   },
   en: {
+    credit: 'Made by <a href="https://2toml.github.io/TL_Final/" target="_blank" rel="noopener" id="site-credit-link"><span>Tom Lamers</span></a> - 2025',
     about: {
       name: 'Tiffany Nauts',
       p1: 'Clinical psychologist, specialized in therapy for adolescents and adults. Passionate about human support, I welcome you in a caring and confidential environment.',
@@ -214,6 +217,12 @@ function setLanguage(lang) {
   // FAQ meevertaalt
   if (typeof renderFAQ === 'function') {
     renderFAQ(lang);
+  }
+
+  // Footer credit meertalig
+  var creditEl = document.getElementById('site-credit-text');
+  if (creditEl && translations[lang].credit) {
+    creditEl.innerHTML = translations[lang].credit;
   }
 }
 

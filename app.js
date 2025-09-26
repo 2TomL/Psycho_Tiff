@@ -56,6 +56,17 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 
+  // Sluit menu als je naast het menu klikt (desktop en mobiel)
+  document.addEventListener('click', function(e) {
+    if (menuWrapper.classList.contains('open')) {
+      // Check of er buiten de menu-wrapper en menu-toggle wordt geklikt
+      if (!menuWrapper.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuWrapper.classList.remove('open');
+        menuToggle.classList.remove('open');
+      }
+    }
+  });
+
   document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menuWrapper.classList.contains('open')) {
           menuWrapper.classList.remove('open');
