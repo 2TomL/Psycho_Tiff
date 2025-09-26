@@ -1,3 +1,19 @@
+/* Eerste letter van 'Aanbod' in het linkermenu in BreakingRoad font */
+.menu-aanbod-a {
+    font-family: 'BreakingRoad', sans-serif !important;
+    font-size: 1.25em;
+    letter-spacing: 0.01em;
+    color: #2a2a2a;
+    display: inline;
+}
+/* Eerste letter van 'Services' in het linkermenu in BreakingRoad font */
+.menu-services-s {
+    font-family: 'BreakingRoad', sans-serif !important;
+    font-size: 1.25em;
+    letter-spacing: 0.01em;
+    color: #2a2a2a;
+    display: inline;
+}
 
 @media (max-width: 900px) {
     #section6 .blog-article-card p {
@@ -481,6 +497,8 @@
     align-items: center;
     gap: 8px;
     z-index: 2;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 .logo {
     display: block;
@@ -1832,7 +1850,7 @@ html, body, *, *::before, *::after {
         height: calc(100vh - 48px);
         max-height: calc(100vh - 48px);
         overflow-y: auto;
-        padding-bottom: 60px;
+        padding-bottom: 0;
         box-sizing: border-box;
     }
     .menu-bottom {
@@ -1934,9 +1952,22 @@ html, body, *, *::before, *::after {
     }
     .menu-bottom {
         position: static;
-        margin-top: auto;
-        margin-bottom: 16px;
+        margin-top: 8px;
+        margin-bottom: 0;
         align-items: flex-start;
+        order: 1;
+    }
+    /* Zorg dat de taalkeuze niet het menu naar beneden duwt */
+    .menu-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .menu-links {
+        flex: 0 0 auto;
+    }
+    .menu-bottom {
+        flex: 0 0 auto;
     }
     .lang-popup {
         left: 0;
@@ -1977,7 +2008,9 @@ html, body, *, *::before, *::after {
         margin-bottom: 12px;
     }
     .menu-bottom {
-        margin-bottom: 8px;
+        margin-bottom: 0;
+        margin-top: 8px;
+        order: 1;
     }
     .lang-popup {
         min-width: 90px;

@@ -146,7 +146,36 @@ function setLanguage(lang) {
   document.querySelector('.menu-links a[href="#section1"]').title = translations[lang].tooltips.accueil;
   document.querySelector('.menu-links a[href="#section2"]').textContent = translations[lang].apropos;
   document.querySelector('.menu-links a[href="#section2"]').title = translations[lang].tooltips.apropos;
-  document.querySelector('.menu-links a[href="#section3"]').textContent = translations[lang].therapie;
+  // Zet altijd de eerste S van Services/Services/Services in een span voor BreakingRoad font, ongeacht wat ervoor staat
+  // En de eerste A van Aanbod in een span voor BreakingRoad font in het Nederlands
+  const therapieText = translations[lang].therapie;
+  let replacedS = false;
+  let replacedA = false;
+  if (lang === 'nl') {
+    // Eerst A van Aanbod
+    document.querySelector('.menu-links a[href="#section3"]').innerHTML = therapieText.replace(/A(anbod)/, function(match, p1) {
+      replacedA = true;
+      return '<span class="menu-aanbod-a">A</span>' + p1;
+    });
+    // Daarna S van Services (voor fallback)
+    if (!replacedA) {
+      document.querySelector('.menu-links a[href="#section3"]').innerHTML = therapieText.replace(/S([a-zA-Zéèêëîïôöûüçàâäæœ]*)/, function(match, p1) {
+        replacedS = true;
+        return '<span class="menu-services-s">S</span>' + p1;
+      });
+    }
+    if (!replacedA && !replacedS) {
+      document.querySelector('.menu-links a[href="#section3"]').textContent = therapieText;
+    }
+  } else {
+    document.querySelector('.menu-links a[href="#section3"]').innerHTML = therapieText.replace(/S([a-zA-Zéèêëîïôöûüçàâäæœ]*)/, function(match, p1) {
+      replacedS = true;
+      return '<span class="menu-services-s">S</span>' + p1;
+    });
+    if (!replacedS) {
+      document.querySelector('.menu-links a[href="#section3"]').textContent = therapieText;
+    }
+  }
   document.querySelector('.menu-links a[href="#section3"]').title = translations[lang].tooltips.therapie;
   document.querySelector('.menu-links a[href="#section5"]').textContent = translations[lang].rdv;
   document.querySelector('.menu-links a[href="#section5"]').title = translations[lang].tooltips.rdv;
