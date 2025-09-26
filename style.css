@@ -265,6 +265,10 @@
     filter: none;
 }
 /* FAQ en cards volgen hieronder, ... */
+/* FAQ antwoorden blauw */
+.faq li .faq-answer {
+    color: #50A3B9;
+}
 /* =========================
    3. NAVIGATIE, MENU, TAAL, SOCIALS
    ========================= */
