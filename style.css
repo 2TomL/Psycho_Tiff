@@ -2069,6 +2069,20 @@ html, body, *, *::before, *::after {
   }
 }
 
+/* Make Services card titles smaller on mobile so they sit better with the text */
+@media (max-width: 900px) {
+    .card-element h2 {
+        font-size: 1.55rem !important;
+        line-height: 1.15;
+    }
+}
+@media (max-width: 600px) {
+    .card-element h2 {
+        font-size: 1.35rem !important;
+        line-height: 1.12;
+    }
+}
+
 /* --- About sectie --- */
 .about-card {
   display: flex;
