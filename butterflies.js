@@ -163,7 +163,7 @@ function setupButterflies(formRect) {
   }
 }
 
-function startButterflyAnimationWithSeed(seed) {
+function startButterflyAnimationWithSeed(seed = Math.random()) {
   clearButterflies();
   animationStarted = true;
   const form = document.getElementById('contactForm');
@@ -243,6 +243,20 @@ function attachMenuListeners() {
   } else {
     console.error('Butterfly: Menu toggle not found');
   }
+  
+  // Ensure butterfly animation starts when clicking on the menu text
+  const menuLabel = document.querySelector('.menu-label');
+  if (menuLabel) {
+    console.log('Butterfly: Menu label found, attaching click listener');
+    menuLabel.addEventListener('click', () => {
+      console.log('Butterfly: Menu label clicked - starting butterfly flight');
+      if (navbarButterflyMesh && !navbarButterflyFlying && !navbarButterflyMesh.visible) {
+        startNavbarButterflyFlight();
+      }
+    });
+  } else {
+    console.error('Butterfly: Menu label not found');
+  }
 }
 
 // --- Initialisatie ---
@@ -280,3 +294,17 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// Refine mobile detection to ensure desktop functionality remains unaffected
+const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+if (isMobile) {
+  console.log('Butterfly: Mobile device detected, disabling animations');
+  window.addEventListener('DOMContentLoaded', () => {
+    animationStarted = false;
+    if (renderer && renderer.domElement) {
+      renderer.domElement.style.display = 'none';
+    }
+  });
+} else {
+  console.log('Butterfly: Desktop detected, animations enabled');
+}
